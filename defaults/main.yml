@@ -1,0 +1,19 @@
+---
+# defaults file for gerrit
+
+gerrit_packages_state: present
+gerrit_remove_packages: true
+gerrit_enable_service: true
+gerrit_enable_selinux: true
+gerrit_copy_templates: true
+gerrit_firewall_configure: true
+gerrit_firewall_rules:
+  - service: ssh
+  - port: 3389
+gerrit_users:
+  - user: devops
+    group: docker
+gerrit_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

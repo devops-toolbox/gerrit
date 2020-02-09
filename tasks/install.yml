@@ -1,0 +1,27 @@
+---
+# Install gerrit packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ gerrit_packages_remove }}"
+    state: absent
+  become: true
+  when: gerrit_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ gerrit_packages_repos }}"
+    state: "{{ gerrit_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ gerrit_packages_prereq }}"
+    state: "{{ gerrit_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ gerrit_packages_install }}"
+    state: "{{ gerrit_packages_state }}"
+  become: true

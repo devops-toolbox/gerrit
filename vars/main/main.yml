@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+gerrit_repos_create: "{{ _gerrit_repos_create['all']
+  | union ( _gerrit_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+gerrit_repos_download: "{{ _gerrit_repos_download['all']
+  | union ( _gerrit_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+gerrit_templates_copy: "{{ _gerrit_templates_copy['all']
+  | union ( _gerrit_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+gerrit_services_enable: "{{ _gerrit_services_enable['all']
+  | union ( _gerrit_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+gerrit_selinux_enable: "{{ _gerrit_selinux_enable['all']
+  | union ( _gerrit_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+gerrit_packages_remove: "{{ _gerrit_packages_remove['all']
+  | union ( _gerrit_packages_remove[my_os]
+  | default([]) ) }}"
+gerrit_packages_repos: "{{ _gerrit_packages_repos['all']
+  | union ( _gerrit_packages_repos[my_os]
+  | default([]) ) }}"
+gerrit_packages_prereq: "{{ _gerrit_packages_prereq['all']
+  | union ( _gerrit_packages_prereq[my_os]
+  | default([]) ) }}"
+gerrit_packages_install: "{{ _gerrit_packages_install['all']
+  | union ( _gerrit_packages_install[my_os]
+  | default([]) ) }}"

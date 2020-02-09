@@ -1,0 +1,10 @@
+---
+# Template configuration files for gerrit
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ gerrit_templates_copy }}"
+  when: gerrit_copy_templates
