@@ -8,10 +8,10 @@ gerrit: Gerrit
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.gerrit](https://galaxy.ansible.com/devops-toolbox.gerrit)
+[https://galaxy.ansible.com/devopstoolbox.gerrit](https://galaxy.ansible.com/devopstoolbox.gerrit)
 
 ```bash
-ansible-galaxy install devops-toolbox.gerrit
+ansible-galaxy install devopstoolbox.gerrit
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: gerrit is configured
       import_role:
-        name: devops-toolbox.gerrit
+        name: devopstoolbox.gerrit
       vars:
         gerrit_packages_state: present
         gerrit_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
